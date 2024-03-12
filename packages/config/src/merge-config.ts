@@ -1,4 +1,4 @@
-import { assign, mergeWith } from '@pandacss/shared'
+import { PANDA_CONFIG_NAME, assign, mergeWith } from '@pandacss/shared'
 import type { Config } from '@pandacss/types'
 import { mergeAndConcat } from 'merge-anything'
 import { mergeHooks } from './merge-hooks'
@@ -73,7 +73,7 @@ export function mergeConfigs(configs: ExtendableConfig[]) {
   const [userConfig] = configs
   const pluginHooks = userConfig.plugins ?? []
   if (userConfig.hooks) {
-    pluginHooks.push({ name: '__panda.config__', hooks: userConfig.hooks })
+    pluginHooks.push({ name: PANDA_CONFIG_NAME, hooks: userConfig.hooks })
   }
 
   const mergedResult = assign(

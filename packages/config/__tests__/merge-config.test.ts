@@ -2,8 +2,9 @@ import { describe, expect, test } from 'vitest'
 import { mergeConfigs } from '../src/merge-config'
 import { getResolvedConfig } from '../src/get-resolved-config'
 import type { Config } from '@pandacss/types'
+import { PANDA_CONFIG_NAME } from '@pandacss/shared'
 
-const defineConfig = <T extends Config>(config: T) => config
+const defineConfig = <T extends Config>(config: T) => Object.assign(config, { name: PANDA_CONFIG_NAME })
 
 describe('mergeConfigs / theme', () => {
   test('should merge configs', () => {
@@ -34,6 +35,7 @@ describe('mergeConfigs / theme', () => {
 
     expect(result).toMatchInlineSnapshot(`
       {
+        "name": "__panda.config__",
         "theme": {
           "tokens": {
             "colors": {
@@ -77,6 +79,7 @@ describe('mergeConfigs / theme', () => {
 
     expect(result).toMatchInlineSnapshot(`
       {
+        "name": "__panda.config__",
         "theme": {
           "tokens": {
             "colors": {
@@ -132,6 +135,7 @@ describe('mergeConfigs / theme', () => {
 
     expect(result).toMatchInlineSnapshot(`
       {
+        "name": "__panda.config__",
         "theme": {
           "tokens": {
             "colors": {
@@ -178,6 +182,7 @@ describe('mergeConfigs / theme', () => {
 
     expect(result).toMatchInlineSnapshot(`
       {
+        "name": "__panda.config__",
         "theme": {
           "tokens": {
             "colors": {
@@ -218,6 +223,7 @@ describe('mergeConfigs / theme', () => {
 
     expect(result).toMatchInlineSnapshot(`
       {
+        "name": "__panda.config__",
         "theme": {
           "tokens": {
             "colors": {
@@ -235,6 +241,7 @@ describe('mergeConfigs / theme', () => {
     const defaultConfig = defineConfig({
       presets: [
         {
+          name: 'preset1',
           theme: {
             tokens: {
               colors: {
@@ -251,6 +258,7 @@ describe('mergeConfigs / theme', () => {
           },
         },
         {
+          name: 'preset2',
           theme: {
             tokens: {
               colors: {
@@ -287,6 +295,7 @@ describe('mergeConfigs / theme', () => {
     const userConfig = defineConfig({
       presets: [
         {
+          name: 'preset3',
           theme: {
             tokens: {
               colors: {
@@ -303,6 +312,7 @@ describe('mergeConfigs / theme', () => {
           },
         },
         {
+          name: 'preset4',
           theme: {
             tokens: {
               colors: {
@@ -364,6 +374,7 @@ describe('mergeConfigs / theme', () => {
 
     expect(result).toMatchInlineSnapshot(`
       {
+        "name": "preset4",
         "theme": {
           "tokens": {
             "colors": {
@@ -419,6 +430,7 @@ describe('mergeConfigs / theme', () => {
 
     expect(result).toMatchInlineSnapshot(`
       {
+        "name": "__panda.config__",
         "theme": {
           "tokens": {
             "colors": {
