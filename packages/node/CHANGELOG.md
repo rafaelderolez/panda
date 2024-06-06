@@ -1,5 +1,20 @@
 # @pandacss/node
 
+## 0.41.0
+
+### Patch Changes
+
+- Updated dependencies [af8a29a]
+  - @pandacss/generator@0.41.0
+  - @pandacss/parser@0.41.0
+  - @pandacss/config@0.41.0
+  - @pandacss/core@0.41.0
+  - @pandacss/extractor@0.41.0
+  - @pandacss/logger@0.41.0
+  - @pandacss/shared@0.41.0
+  - @pandacss/token-dictionary@0.41.0
+  - @pandacss/types@0.41.0
+
 ## 0.40.1
 
 ### Patch Changes
